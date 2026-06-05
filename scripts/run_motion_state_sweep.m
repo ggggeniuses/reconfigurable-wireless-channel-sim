@@ -24,19 +24,19 @@ for k = 1:size(motionStates, 1)
     curves(:, k) = resultK.combined_bdcm(:);
 end
 
-fig = figure('Color', 'w', 'Position', [100, 100, 760, 560]);
+fig = create_paper_figure();
 hold on;
 styles = {'k-', 'b--', 'm-.', 'r:'};
 for k = 1:size(motionStates, 1)
-    plot(cfg.axis.delta_t, curves(:, k), styles{k}, 'LineWidth', 1.65, ...
+    plot(cfg.axis.delta_t, curves(:, k), styles{k}, 'LineWidth', 1.35, ...
         'DisplayName', labels{k});
 end
 xlabel('Time difference, $\Delta t$, [s]', 'Interpreter', 'latex');
 ylabel('Temporal ACFs', 'Interpreter', 'latex');
-title('Mobility-state impact on temporal ACFs of BDCM');
 xlim([0, 0.08]);
 ylim([0, 1.03]);
-legend('Location', 'northeast', 'Interpreter', 'none', 'FontSize', 10);
+lgd = legend('Location', 'northeast', 'Interpreter', 'none', 'FontSize', 10);
+format_paper_legend(lgd);
 apply_plot_style(gca);
 
 data = struct('cfg', cfg, 'motionStates', motionStates, 'delta_t', cfg.axis.delta_t, ...

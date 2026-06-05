@@ -54,16 +54,17 @@ rho_FCF_VLoS_RIS_GBSM = rho_FCF_RIS_GBSM(j, c, f_c, delta_f_c, v_T, v_R, eta_ver
 
 rho_FCF_cluster_RIS_GBSM = (1)/(K+1)*rho_FCF_NLoS_cluster_GBSM + (K)/(K+1)*rho_FCF_VLoS_RIS_GBSM;
 
-fig = figure('Color', 'w', 'Position', [100, 100, 760, 560]); hold on;
-plot(delta_f_c, abs(rho_FCF_NLoS_cluster_GBSM), 'k-+', 'LineWidth', 1.25, 'MarkerSize', 6);
-plot(delta_f_c, abs(rho_FCF_VLoS_RIS_GBSM), 'b-', 'LineWidth', 1.25);
-plot(delta_f_c, abs(rho_FCF_cluster_RIS_GBSM), 'm--', 'LineWidth', 1.25);
+fig = create_paper_figure(); hold on;
+markerIdx = paper_marker_indices(delta_f_c);
+plot(delta_f_c, abs(rho_FCF_NLoS_cluster_GBSM), 'k-+', 'LineWidth', 1.15, 'MarkerSize', 5, 'MarkerIndices', markerIdx);
+plot(delta_f_c, abs(rho_FCF_VLoS_RIS_GBSM), 'b-', 'LineWidth', 1.15);
+plot(delta_f_c, abs(rho_FCF_cluster_RIS_GBSM), 'm--', 'LineWidth', 1.15);
 axis([0 10 0 1]);
 xlabel('Frequency difference, $\Delta f$, [MHz]', 'Interpreter', 'latex');
 ylabel('Normalized FCFs', 'Interpreter', 'latex');
-title('Strict frequency FCF reproduction from original STF-CF code');
-legend({'NLoS, GBSM', 'VLoS, GBSM', 'NLoS + VLoS, GBSM'}, ...
-    'Interpreter', 'latex', 'FontSize', 10);
+lgd = legend({'NLoS, GBSM', 'VLoS, GBSM', 'NLoS + VLoS, GBSM'}, ...
+    'Interpreter', 'latex', 'FontSize', 10, 'Location', 'northeast');
+format_paper_legend(lgd);
 apply_plot_style(gca);
 
 result = struct('axis', delta_f_c, ...

@@ -10,7 +10,7 @@ delete_if_exists(pngPath);
 delete_if_exists(matPath);
 
 savefig(fig, figPath);
-exportgraphics(fig, pngPath, 'Resolution', 220);
+exportgraphics(fig, pngPath, 'Resolution', 300);
 save(matPath, '-struct', 'data');
 fprintf('Saved %s\n', pngPath);
 end

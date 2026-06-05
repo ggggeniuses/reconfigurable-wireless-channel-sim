@@ -17,19 +17,19 @@ for k = 1:numel(risSizes)
     curves(:, k) = resultK.vlos_bdcm(:);
 end
 
-fig = figure('Color', 'w', 'Position', [100, 100, 760, 560]);
+fig = create_paper_figure();
 hold on;
 styles = {'k-', 'b--', 'm-.', 'r:'};
 for k = 1:numel(risSizes)
-    plot(cfg.axis.delta_t, curves(:, k), styles{k}, 'LineWidth', 1.65, ...
+    plot(cfg.axis.delta_t, curves(:, k), styles{k}, 'LineWidth', 1.35, ...
         'DisplayName', sprintf('$M_x=M_z=%d$', risSizes(k)));
 end
 xlabel('Time difference, $\Delta t$, [s]', 'Interpreter', 'latex');
 ylabel('Temporal ACFs', 'Interpreter', 'latex');
-title('RIS size impact on RIS-assisted VLoS temporal ACFs');
 xlim([0, 0.2]);
 ylim([0.84, 1.01]);
-legend('Location', 'northeast', 'Interpreter', 'latex', 'FontSize', 10);
+lgd = legend('Location', 'northeast', 'Interpreter', 'latex', 'FontSize', 10);
+format_paper_legend(lgd);
 apply_plot_style(gca);
 
 data = struct('cfg', cfg, 'risSizes', risSizes, 'delta_t', cfg.axis.delta_t, 'curves', curves);

@@ -66,19 +66,20 @@ rho_CCF_VLoS_RIS_BDCM = rho_CCF_RIS_BDCM(j, lambda, v_T, v_R, eta_ver_T, eta_azi
 
 rho_CCF_cluster_RIS_BDCM = (1)/(K+1)*rho_CCF_NLoS_cluster_BDCM + (K)/(K+1)*rho_CCF_VLoS_RIS_BDCM;
 
-fig = figure('Color', 'w', 'Position', [100, 100, 760, 560]); hold on;
-plot(delta_q, abs(rho_CCF_NLoS_cluster_GBSM), 'k-+', 'LineWidth', 1.25, 'MarkerSize', 6);
-plot(delta_q, abs(rho_CCF_NLoS_cluster_BDCM), 'k-d', 'LineWidth', 1.25, 'MarkerSize', 6);
-plot(delta_q, abs(rho_CCF_VLoS_RIS_GBSM), 'b-', 'LineWidth', 1.25);
-plot(delta_q, abs(rho_CCF_VLoS_RIS_BDCM), 'b-*', 'LineWidth', 1.25, 'MarkerSize', 6);
-plot(delta_q, abs(rho_CCF_cluster_RIS_GBSM), 'm--', 'LineWidth', 1.25);
-plot(delta_q, abs(rho_CCF_cluster_RIS_BDCM), 'm--o', 'LineWidth', 1.25, 'MarkerSize', 6);
+fig = create_paper_figure(); hold on;
+markerIdx = paper_marker_indices(delta_q);
+plot(delta_q, abs(rho_CCF_NLoS_cluster_GBSM), 'k-+', 'LineWidth', 1.15, 'MarkerSize', 5, 'MarkerIndices', markerIdx);
+plot(delta_q, abs(rho_CCF_NLoS_cluster_BDCM), 'k-d', 'LineWidth', 1.15, 'MarkerSize', 5, 'MarkerIndices', markerIdx);
+plot(delta_q, abs(rho_CCF_VLoS_RIS_GBSM), 'b-', 'LineWidth', 1.15);
+plot(delta_q, abs(rho_CCF_VLoS_RIS_BDCM), 'b-*', 'LineWidth', 1.15, 'MarkerSize', 5, 'MarkerIndices', markerIdx);
+plot(delta_q, abs(rho_CCF_cluster_RIS_GBSM), 'm--', 'LineWidth', 1.15);
+plot(delta_q, abs(rho_CCF_cluster_RIS_BDCM), 'm--o', 'LineWidth', 1.15, 'MarkerSize', 5, 'MarkerIndices', markerIdx);
 axis([0 30 0 1]);
 xlabel('Antenna index or beam index', 'Interpreter', 'latex');
 ylabel('Spatial CCFs', 'Interpreter', 'latex');
-title('Strict spatial CCF reproduction from original STF-CF code');
-legend({'NLoS, GBSM', 'NLoS, BDCM', 'VLoS, GBSM', 'VLoS, BDCM', ...
-    'NLoS + VLoS, GBSM', 'NLoS + VLoS, BDCM'}, 'Interpreter', 'latex', 'FontSize', 10);
+lgd = legend({'NLoS, GBSM', 'NLoS, BDCM', 'VLoS, GBSM', 'VLoS, BDCM', ...
+    'NLoS + VLoS, GBSM', 'NLoS + VLoS, BDCM'}, 'Interpreter', 'latex', 'FontSize', 10, 'Location', 'northeast');
+format_paper_legend(lgd);
 apply_plot_style(gca);
 
 result = struct('axis', delta_q, ...
