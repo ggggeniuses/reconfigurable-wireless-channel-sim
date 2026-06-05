@@ -1,0 +1,15 @@
+# MATLAB autosaves and cache
+*.asv
+*.m~
+slprj/
+sccprj/
+codegen/
+
+# OS/editor metadata
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Large or regenerated outputs can be cleaned before release if needed.
+# The checked-in figures under results/figures are intentionally useful for README rendering.
+vendor/**/result/

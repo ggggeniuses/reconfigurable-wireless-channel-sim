@@ -1,0 +1,8 @@
+*.m text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.bib text eol=lf
+*.png binary
+*.fig binary
+*.mat binary
+*.zip binary
