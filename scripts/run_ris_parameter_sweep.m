@@ -2,9 +2,10 @@ projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(genpath(fullfile(projectRoot, 'src')));
 
 cfg = default_ris_v2v_config();
+cfg.axis.delta_t = 0:0.001:0.2;
 ensure_output_dirs(cfg);
 
-risSizes = [10, 20, 30, 40];
+risSizes = [8, 16, 32, 64];
 curves = zeros(numel(cfg.axis.delta_t), numel(risSizes));
 
 for k = 1:numel(risSizes)
@@ -13,7 +14,7 @@ for k = 1:numel(risSizes)
     cfgK.ris.Mz = risSizes(k);
     resultK = compute_temporal_acf(cfgK);
     assert_no_invalid_values(resultK, sprintf('RIS sweep M=%d', risSizes(k)));
-    curves(:, k) = resultK.combined_bdcm(:);
+    curves(:, k) = resultK.vlos_bdcm(:);
 end
 
 fig = figure('Color', 'w', 'Position', [100, 100, 760, 560]);
@@ -25,14 +26,15 @@ for k = 1:numel(risSizes)
 end
 xlabel('Time difference, $\Delta t$, [s]', 'Interpreter', 'latex');
 ylabel('Temporal ACFs', 'Interpreter', 'latex');
-title('RIS size impact on temporal ACFs of BDCM');
-xlim([0, 0.02]);
-ylim([0, 1.03]);
+title('RIS size impact on RIS-assisted VLoS temporal ACFs');
+xlim([0, 0.2]);
+ylim([0.84, 1.01]);
 legend('Location', 'northeast', 'Interpreter', 'latex', 'FontSize', 10);
 apply_plot_style(gca);
 
 data = struct('cfg', cfg, 'risSizes', risSizes, 'delta_t', cfg.axis.delta_t, 'curves', curves);
-data.note = ['Extension experiment using the project compact model. ', ...
+data.note = ['Extension experiment using the project RIS-array geometry model. ', ...
     'The original STF-CF RIS rho-functions hard-code Mx=Mz=30 internally, ', ...
-    'so strict RIS-size sweeping is kept separate from the original-code reproduction.'];
+    'so strict RIS-size sweeping is kept separate from the original-code reproduction. ', ...
+    'The plotted curves isolate the RIS-assisted VLoS component to make the aperture effect visible.'];
 save_experiment_outputs(fig, cfg, 'ris_parameter_sweep_temporal_acf_extension', data);

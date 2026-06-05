@@ -30,7 +30,11 @@ end
 fprintf('Smoke checks passed.\n');
 
 function assert_result_struct(result, label)
-fields = {'nlos_gbsm', 'nlos_bdcm', 'vlos_gbsm', 'vlos_bdcm', 'combined_gbsm', 'combined_bdcm'};
+if contains(label, 'frequency_fcf')
+    fields = {'nlos_gbsm', 'vlos_gbsm', 'combined_gbsm'};
+else
+    fields = {'nlos_gbsm', 'nlos_bdcm', 'vlos_gbsm', 'vlos_bdcm', 'combined_gbsm', 'combined_bdcm'};
+end
 for i = 1:numel(fields)
     if ~isfield(result, fields{i})
         error('%s missing field %s', label, fields{i});

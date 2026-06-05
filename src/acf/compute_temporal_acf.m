@@ -20,14 +20,7 @@ end
 nlos_gbsm = normalize_correlation(nlos_gbsm);
 nlos_bdcm = beam_domain_variant(nlos_gbsm, delta_t, 0.04);
 
-risAz = atan2(cfg.ris.y, cfg.ris.x);
-risEl = atan2(cfg.ris.z - cfg.geometry.H0, hypot(cfg.ris.x, cfg.ris.y));
-vlosDoppler = (vT * (cos(risEl) * cos(risAz - cfg.motion.eta_azi_T) * cos(cfg.motion.eta_ver_T) ...
-                  + sin(risEl) * sin(cfg.motion.eta_ver_T)) ...
-             - vR * cos(risAz - cfg.motion.eta_azi_R)) / lambda;
-risSize = sqrt(max(cfg.ris.Mx * cfg.ris.Mz, 1));
-decorrelationRate = 18 + 0.11 * risSize + 80 * (cfg.ris.dmx / lambda);
-vlos_gbsm = normalize_correlation(exp(-decorrelationRate .* delta_t) .* exp(1i * 2 * pi * vlosDoppler .* delta_t));
+vlos_gbsm = ris_vlos_array_acf(cfg, delta_t);
 vlos_bdcm = beam_domain_variant(vlos_gbsm, delta_t, 0.025);
 
 combined_gbsm = combine_rician_links(nlos_gbsm, vlos_gbsm, cfg.geometry.K);

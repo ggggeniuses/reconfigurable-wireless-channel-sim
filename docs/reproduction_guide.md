@@ -25,6 +25,11 @@ Generated files:
 
 The scripts call `vendor/original_stf_cf/**/rho_*.m` directly.
 
+The original `Frequency_FCF.m` script comments out BDCM FCF computation and
+plotting, while leaving a six-label legend in the file. This project therefore
+treats strict FCF reproduction as the three GBSM curves that are actually
+computed and plotted by the source script.
+
 ## Extension Experiments
 
 ```matlab
@@ -37,8 +42,12 @@ Generated files:
 - `ris_spacing_sweep_temporal_acf_extension`
 - `motion_state_sweep_temporal_acf_extension`
 
-These are not claimed as direct paper-figure reproductions. They show how the
-modeling framework can be used for additional analysis.
+These are not claimed as direct paper-figure reproductions. They use a compact
+RIS-array geometry model with explicit element coordinates, because the
+original RIS `rho_*` functions fix `M_x = M_z = 30` and reuse a single sub-array
+coordinate inside the RIS loops. The figures show how the modeling framework
+can be used for additional analysis after validating the base correlation
+trends.
 
 ## Smoke Checks
 

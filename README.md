@@ -13,7 +13,7 @@ The project is organized around the paper:
 ## What This Project Does
 
 - Refactors the original STF-CF MATLAB code into a reproducible project.
-- Reproduces GBSM/BDCM statistical channel characteristics:
+- Reproduces statistical channel characteristics from the original STF-CF code:
   - Spatial cross-correlation function (CCF)
   - Temporal auto-correlation function (ACF)
   - Frequency correlation function (FCF)
@@ -41,8 +41,10 @@ The project is organized around the paper:
 ```
 
 `vendor/original_stf_cf/` contains the original STF-CF functions. The strict
-reproduction scripts call those `rho_*` functions directly. The extension
-experiments are kept separate and clearly marked as extensions.
+reproduction scripts call those `rho_*` functions directly. The original FCF
+script comments out the BDCM FCF curves, so the strict FCF figure follows the
+three-curve GBSM output that the source script actually computes and plots. The
+extension experiments are kept separate and clearly marked as extensions.
 
 ## Quick Start
 
@@ -91,9 +93,10 @@ correlation behavior induced by V2V mobility and RIS-assisted propagation.
 
 ![Frequency FCF](results/figures/frequency_fcf_gbsm_bdcm_strict.png)
 
-This experiment compares normalized FCFs. The original `Frequency_FCF.m`
-comments out BDCM plotting, but the BDCM helper functions are present, so this
-project computes and saves the full six-curve comparison.
+This experiment compares normalized FCFs using the three GBSM curves that are
+actually plotted in the original `Frequency_FCF.m` script. BDCM helper
+functions exist in the source package, but the paper-code script comments out
+those FCF lines, so they are not mixed into the strict reproduction figure.
 
 ## Extension Results
 
@@ -109,9 +112,12 @@ project computes and saves the full six-curve comparison.
 
 ![Motion state sweep](results/figures/motion_state_sweep_temporal_acf_extension.png)
 
-The extension experiments use the compact project model because the original
-RIS `rho_*` functions hard-code `M_x = M_z = 30` internally. They are intended
-to demonstrate additional analysis ability beyond strict reproduction.
+The extension experiments use a compact RIS-array geometry model because the
+original RIS `rho_*` functions hard-code `M_x = M_z = 30` internally and reuse a
+fixed sub-array coordinate in the RIS element loops. The extension model
+computes temporal correlation from RIS element coordinates and time-varying
+Tx/Rx look directions, so array size, element spacing, and mobility changes
+produce interpretable qualitative trends beyond strict reproduction.
 
 ## Documentation
 
@@ -133,8 +139,9 @@ No external MATLAB toolbox is required for the current scripts.
 ## Resume Summary
 
 > Built a MATLAB simulator for RIS-aided V2V 3D dynamic channel modeling.
-> Refactored original STF-CF code to reproduce GBSM/BDCM spatial CCF,
-> temporal ACF, and frequency FCF results, and extended the study by analyzing
+> Refactored original STF-CF code to reproduce GBSM/BDCM spatial CCF and
+> temporal ACF results plus the original-code GBSM frequency FCF, and extended
+> the study by analyzing
 > RIS array size, element spacing, and mobility-state impacts on channel
 > non-stationarity.
 
