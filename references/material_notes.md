@@ -16,9 +16,10 @@
   - `scripts/run_spatial_ccf.m`, `scripts/run_temporal_acf.m`, and
     `scripts/run_frequency_fcf.m` directly call the imported original
     `rho_*` functions.
-  - The original `Frequency_FCF.m` comments out BDCM plotting, but the BDCM
-    helper functions exist. The project wrapper computes those BDCM curves
-    using the original helper functions.
+  - The original `Frequency_FCF.m` comments out BDCM plotting. The strict
+    project wrapper follows the source script and keeps FCF as the plotted GBSM
+    curves rather than mixing uncommented helper-function outputs into the
+    reproduction figure.
   - RIS-size sweeping is not done through the original `rho_ACF_RIS_*`
     functions because those functions hard-code `M_x = M_z = 30`.
 

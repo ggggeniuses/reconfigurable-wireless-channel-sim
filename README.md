@@ -123,6 +123,7 @@ produce interpretable qualitative trends beyond strict reproduction.
 
 - [Theory notes](docs/theory_notes.md)
 - [Reproduction guide](docs/reproduction_guide.md)
+- [Project overview and roadmap](docs/project_overview_and_roadmap.md)
 - [Resume description](docs/resume_description.md)
 - [Material notes](references/material_notes.md)
 
