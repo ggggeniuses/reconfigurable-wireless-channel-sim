@@ -1,10 +1,11 @@
 # Future Work
 
-## Joint RIS-FAS Channel Module
+## Maritime Model Calibration
 
-- Joint RIS geometry and FAS active-port sweeps.
-- Correlation and capacity trade-off analysis.
-- Air-ground mobility scenarios.
+- Measurement-informed sea-state and scattering parameters.
+- Time-evolving scatterers and sea-state-dependent Doppler spread.
+- End-to-end path-loss and Rician-factor calibration.
+- No-RIS, fixed-antenna, and hardware-constrained RIS baselines.
 
 ## Estimation and Learning
 

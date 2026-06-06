@@ -1,28 +1,17 @@
-# Reconfigurable Wireless Dynamic Channel Simulator
+# RIS/FAS-Enabled Dynamic Channel Modeling and Maritime Extension Simulator
 
-Self-contained MATLAB platform for dynamic channel modeling and performance
-analysis in RIS-enabled V2V and FAS-assisted UAV wireless systems.
+MATLAB research-engineering simulator for dynamic channel modeling in
+RIS/FAS-enabled reconfigurable wireless systems. It covers RIS-V2V beam-domain
+statistics, FAS-UAV dynamic port analysis, and a student-designed maritime
+UAV-RIS-shipborne-FAS extension.
 
-## Capabilities
+## Module Overview
 
-### RIS-V2V
-
-- Spatial cross-correlation, temporal autocorrelation, and frequency
-  correlation baselines.
-- RIS array-size and element-spacing parameter sweeps.
-- Vehicle mobility-state analysis.
-- Array-domain and beam-domain capacity invariance check.
-- Beam-domain energy concentration and sparsity metrics.
-- Equal-basis full-model and sparsity-aware complexity accounting.
-
-### FAS-UAV
-
-- Modeling error versus port spacing and active-port count.
-- Capacity versus active ports and physical aperture.
-- Capacity under different UAV motion states.
-- FAS and conventional ULA capacity comparison.
-- Shared random environments for fair Monte Carlo comparisons.
-- `quick`, `calibration`, and `final` simulation profiles.
+| Module | Scenario | Main focus | Role |
+| --- | --- | --- | --- |
+| RIS-V2V Beam-Domain Channel Statistics | RIS-aided vehicle-to-vehicle links | CCF, ACF, FCF, RIS parameters, mobility states | Benchmark model implementation and extension |
+| FAS-UAV Dynamic Port-Reconfigurable Channel | UAV-to-ground links with fluid antenna ports | Modeling error, channel capacity, active ports, UAV motion | Benchmark model implementation and extension |
+| Maritime UAV-RIS-Shipborne-FAS Extension | UAV-to-ship maritime communication | Distance, Rician factor, RIS location, FAS port selection | Student-designed integrated extension |
 
 ## Repository Layout
 
@@ -32,16 +21,15 @@ analysis in RIS-enabled V2V and FAS-assisted UAV wireless systems.
 |-- run_benchmarks.m
 |-- run_extensions.m
 |-- run_fas_uav.m
+|-- run_fas_ship.m
 |-- run_tests.m
 |-- scripts/
 |   |-- fas_uav/
+|   |-- fas_ship/
 |-- src/
-|   |-- acf/
-|   |-- ccf/
-|   |-- fcf/
 |   |-- common/
-|   |-- config/
 |   |-- fas_uav/
+|   |-- fas_ship/
 |   |-- ris_v2v/
 |-- tests/
 |-- results/
@@ -55,7 +43,7 @@ analysis in RIS-enabled V2V and FAS-assisted UAV wireless systems.
 - MATLAB R2024b or a compatible recent MATLAB release.
 - No additional MATLAB toolbox is required by the project code.
 
-## Run
+## Quick Start
 
 From the repository root:
 
@@ -64,94 +52,93 @@ run_all
 run_tests
 ```
 
-Individual modules:
+Run individual modules:
 
 ```matlab
 run_benchmarks
 run_extensions
 run_fas_uav
+run_fas_ship
 ```
 
-FAS-UAV uses four Monte Carlo realizations by default for a fast check. For
-final-quality figures on PowerShell:
+FAS modules use quick Monte Carlo profiles by default. For final-quality runs:
 
 ```powershell
 $env:FAS_UAV_PROFILE = "final"
+$env:FAS_SHIP_PROFILE = "final"
 matlab -batch "run_all"
 matlab -batch "run_tests"
 ```
 
-The `final` profile uses 300 realizations.
-
 ## Selected Results
 
-### RIS-V2V Correlation
+### RIS-V2V Correlation and Beam-Domain Analysis
 
 ![Spatial CCF](results/figures/spatial_ccf_model_baseline.png)
 
 ![Temporal ACF](results/figures/temporal_acf_model_baseline.png)
 
-![Frequency FCF](results/figures/frequency_fcf_model_baseline.png)
-
-### RIS-V2V Beam-Domain Analysis
-
 ![Capacity](results/figures/ris_v2v/channel_capacity_gbsm_bdcm_extension.png)
 
-![Sparsity](results/figures/ris_v2v/channel_matrix_sparsity_gbsm_bdcm_extension.png)
-
-![Complexity](results/figures/ris_v2v/complexity_comparison_extension.png)
-
-The ideal DFT transform preserves channel capacity. The complexity reduction
-shown by the sparse BDCM curve comes from retaining the beam coefficients that
-capture 95% of channel energy, rather than from assigning different matrix
-sizes to the full GBSM and BDCM.
-
-### FAS-UAV Analysis
+### FAS-UAV Dynamic Port Analysis
 
 ![Modeling error](results/figures/fas_uav/fas_uav_modeling_error.png)
 
-![Capacity versus active ports](results/figures/fas_uav/fas_uav_capacity_vs_ports_w.png)
-
-![Capacity versus motion](results/figures/fas_uav/fas_uav_capacity_vs_ports_motion.png)
-
 ![FAS versus ULA](results/figures/fas_uav/fas_uav_capacity_fas_vs_ula.png)
 
-The modeling-error experiment evaluates the complex CIRs directly. Frobenius
-normalization is applied separately in the channel-capacity experiments.
+## Maritime UAV-RIS-Shipborne-FAS Extension
+
+This module combines UAV mobility, aerial RIS-assisted cascaded propagation,
+sea-surface-inspired NLoS scattering, and shipborne FAS port selection.
+
+### Temporal ACF under Different Link Distances
+
+![ACF vs Distance](results/figures/fas_ship/acf_vs_distance.png)
+
+### Temporal ACF under Different Rician Factors
+
+![ACF vs Rician Factor](results/figures/fas_ship/acf_vs_rician_factor.png)
+
+### FAS Selection Gain
+
+![FAS Selection Gain](results/figures/fas_ship/fas_selection_gain.png)
+
+### Temporal ACF under Different RIS Locations
+
+![ACF vs RIS Location](results/figures/fas_ship/acf_vs_ris_location.png)
 
 ## Validation
 
-`run_tests` checks:
+`run_tests` checks numerical finiteness, dimensions, deterministic behavior,
+capacity invariance, FAS port validity, maritime ACF normalization, monotonic
+selection performance, and the expected output manifest.
 
-- DFT matrix unitarity and ideal capacity invariance.
-- FAS-UAV deterministic behavior under fixed random seeds.
-- Active-port validity and channel dimensions.
-- Raw-CIR and normalized-channel execution paths.
-- Modeling-error equation behavior.
-- Sparsity and complexity metrics.
-- Expected output files and finite numerical values.
+## Scope Clarification
 
-The latest release candidate passed both `run_all` and `run_tests` with the
-300-realization final profile.
+This project does not claim that every module proposes a measurement-validated
+channel model from scratch. Its goal is to implement, organize, validate, and
+extend representative RIS/FAS dynamic channel modeling ideas into reusable
+MATLAB simulation pipelines. The maritime module is a compact, student-designed
+prototype for qualitative trend analysis and is not yet calibrated against
+field measurements.
 
 ## Documentation
 
 - [Theory notes](docs/theory_notes.md)
 - [Run guide](docs/benchmark_run_guide.md)
 - [Model validation](docs/model_validation.md)
-- [Figure interpretation](docs/figure_interpretation.md)
 - [Cross-scenario comparison](docs/cross_scenario_comparison.md)
 - [Literature map](docs/literature_map.md)
-- [Project roadmap](docs/project_overview_and_roadmap.md)
-- [Chinese project description](docs/项目说明书_可重构无线动态信道建模平台.md)
+- [Maritime model notes](docs/fas_ship_model_notes.md)
+- [Original extension notes](docs/original_extension_notes.md)
+- [Resume description](docs/resume_description.md)
 
 ## Research Basis
 
-The implementation is informed by the channel definitions and evaluation
-metrics in the RIS-V2V and FAS-UAV publications listed in
-[CITATION.md](CITATION.md). The repository contains project code and generated
-results only; source papers and internal visual-check materials are not
-distributed.
+The benchmark modules are informed by the publications listed in
+[CITATION.md](CITATION.md). The public repository distributes project code and
+generated results only; source papers and internal reference assets remain
+local.
 
 ## License
 

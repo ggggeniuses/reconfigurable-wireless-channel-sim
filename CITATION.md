@@ -28,9 +28,9 @@ the underlying RIS-V2V and FAS-UAV channel settings.
 
 ```bibtex
 @software{shi2026reconfigurablechannel,
-  title  = {Reconfigurable Wireless Dynamic Channel Simulator},
+  title  = {RIS/FAS-Enabled Dynamic Channel Modeling and Maritime Extension Simulator},
   author = {Shi, Yiran},
   year   = {2026},
-  note   = {MATLAB platform for RIS-V2V and FAS-UAV dynamic channel analysis}
+  note   = {MATLAB platform for RIS-V2V, FAS-UAV, and maritime UAV-RIS-shipborne-FAS analysis}
 }
 ```

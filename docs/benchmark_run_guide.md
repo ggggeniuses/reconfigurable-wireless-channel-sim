@@ -8,7 +8,8 @@ run_tests
 ```
 
 `run_all` generates the RIS-V2V correlation baselines, RIS-V2V extension
-experiments, FAS-UAV experiments, and smoke-check outputs.
+experiments, FAS-UAV experiments, maritime RIS-FAS experiments, and
+smoke-check outputs.
 
 ## RIS-V2V Baselines
 
@@ -43,6 +44,17 @@ run_fas_uav
 Set `FAS_UAV_PROFILE` to `quick`, `calibration`, or `final`. The corresponding
 Monte Carlo counts are 4, 30, and 300.
 
+## Maritime UAV-RIS-Shipborne-FAS
+
+```matlab
+run_fas_ship
+```
+
+This module generates temporal ACF sweeps over link distance, Rician factor,
+and aerial RIS location, plus a shipborne FAS selection-gain experiment. Set
+`FAS_SHIP_PROFILE` to `quick`, `calibration`, or `final`; the corresponding
+Monte Carlo counts are 300, 1000, and 3000.
+
 ## Validation
 
 ```matlab
@@ -50,5 +62,6 @@ run_tests
 ```
 
 Tests cover deterministic generation, matrix dimensions, DFT unitarity,
-capacity invariance, modeling-error behavior, sparsity metrics, complexity
-formulas, and output integrity.
+capacity invariance, modeling-error behavior, maritime ACF normalization,
+FAS selection monotonicity, sparsity metrics, complexity formulas, and output
+integrity.

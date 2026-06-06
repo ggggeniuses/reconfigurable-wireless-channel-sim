@@ -1,12 +1,15 @@
 # Cross-Scenario Comparison
 
-| Aspect | RIS-V2V | FAS-UAV |
-| --- | --- | --- |
-| Reconfigurable technology | Reconfigurable Intelligent Surface | Fluid Antenna System |
-| Communication scenario | Vehicle-to-vehicle | UAV-to-ground user |
-| Main model | GBSM / BDCM | Dynamic port-reconfigurable FAS channel |
-| Link components | NLoS / RIS-assisted VLoS / combined link | LoS / NLoS |
-| Main metrics | Spatial CCF, Temporal ACF, Frequency FCF, capacity, complexity | Modeling error, channel capacity |
-| Key parameters | RIS size, RIS spacing, phase, vehicle motion states | Active ports, port spacing, FAS size, UAV motion states |
-| Project role | Channel-statistics and beam-domain analysis module | Dynamic port-reconfiguration and capacity analysis module |
-| Resume value | Shows understanding of beam-domain channel modeling | Shows extension toward FAS and dynamic antenna geometry |
+| Aspect | RIS-V2V | FAS-UAV | Maritime UAV-RIS-Shipborne-FAS |
+| --- | --- | --- | --- |
+| Reconfigurable technology | RIS | FAS | RIS + FAS |
+| Mobility scenario | Vehicle-to-vehicle | UAV-to-ground | UAV-to-ship maritime |
+| Main channel components | VLoS / NLoS / Rician | LoS / NLoS with FAS ports | RIS cascaded path / maritime NLoS / FAS selection |
+| Main metrics | CCF / ACF / FCF / capacity / complexity | Modeling error / capacity | Temporal ACF / selection gain |
+| Main parameters | RIS size, spacing, mobility | Active ports, antenna length, UAV motion | Distance, Rician factor, RIS location, selectable ports |
+| Project role | Benchmark statistics module | Benchmark FAS module | Student-designed integrated extension |
+
+The three modules form a staged project: channel-statistics implementation,
+dynamic port-reconfiguration analysis, and an integrated maritime scenario.
+The final module is intended for qualitative trend analysis rather than a claim
+of measurement-validated maritime propagation.
