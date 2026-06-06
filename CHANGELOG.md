@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Added a complete Chinese project overview in `README_zh.md`.
+- Reorganized the English README around the final three-module project story.
+- Added maritime figure interpretation and expanded validation documentation.
+- Extended maritime tests with fixed-seed reproducibility and PNG manifest
+  checks.
 - Added a maritime UAV-RIS-shipborne-FAS integrated extension.
 - Added distance, Rician-factor, RIS-location, and FAS selection experiments.
 - Added maritime geometry, cascaded-path, clustered-path, and correlated-port

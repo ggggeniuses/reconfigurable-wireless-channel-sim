@@ -197,3 +197,92 @@ Interpretation:
 This result compares ULA and FAS configurations with different port spacing and
 active-port ratios as antenna length increases. ULA uses `lambda/2`, FAS1 uses
 `lambda/3`, and FAS2 uses `lambda/4`.
+
+## Maritime UAV-RIS-Shipborne-FAS: ACF vs Distance
+
+Figure path:
+
+```text
+results/figures/fas_ship/acf_vs_distance.png
+```
+
+Purpose:
+
+Analyze how the UAV-to-ship link distance affects temporal correlation.
+
+Observation:
+
+Different distance settings change the ACF decay and oscillation trends.
+
+Interpretation:
+
+Shorter geometric distances can make path-length variation more sensitive to
+mobility, while larger distances can produce smoother temporal variation in
+the compact trend model.
+
+## Maritime UAV-RIS-Shipborne-FAS: ACF vs Rician Factor
+
+Figure path:
+
+```text
+results/figures/fas_ship/acf_vs_rician_factor.png
+```
+
+Purpose:
+
+Analyze how the dominant RIS/LoS-like component affects temporal ACF.
+
+Observation:
+
+Larger Rician factors increase the relative contribution of deterministic
+RIS-assisted propagation.
+
+Interpretation:
+
+Changing the balance between the coherent cascaded path and diffuse maritime
+scattering changes temporal-correlation behavior.
+
+## Maritime UAV-RIS-Shipborne-FAS: FAS Selection Gain
+
+Figure path:
+
+```text
+results/figures/fas_ship/fas_selection_gain.png
+```
+
+Purpose:
+
+Evaluate how selectable shipborne FAS ports improve effective channel quality
+and capacity.
+
+Observation:
+
+Increasing the number of selectable ports provides more spatial selection
+opportunities and yields a nondecreasing capacity trend.
+
+Interpretation:
+
+A shipborne FAS can exploit spatial diversity within a limited aperture by
+selecting a favorable instantaneous port.
+
+## Maritime UAV-RIS-Shipborne-FAS: ACF vs RIS Location
+
+Figure path:
+
+```text
+results/figures/fas_ship/acf_vs_ris_location.png
+```
+
+Purpose:
+
+Analyze how aerial RIS placement changes temporal correlation.
+
+Observation:
+
+Different RIS locations produce distinguishable ACF decay and oscillation
+patterns.
+
+Interpretation:
+
+RIS placement changes cascaded-link distances and mobility projections, so it
+affects both coverage geometry and channel non-stationarity.

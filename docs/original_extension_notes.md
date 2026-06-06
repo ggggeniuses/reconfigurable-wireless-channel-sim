@@ -2,8 +2,8 @@
 
 ## Purpose
 
-The Maritime UAV-RIS-Shipborne-FAS module is an integrated extension of the
-existing RIS/FAS dynamic channel modeling platform.
+The Maritime UAV-Aerial-RIS-Shipborne-FAS module is a student-designed
+integrated extension of the existing RIS/FAS dynamic channel modeling platform.
 
 It combines:
 
@@ -27,7 +27,7 @@ The experiments investigate:
 
 ## Current Limitations
 
-This is a compact prototype for qualitative trend analysis. It is not validated
-by field measurements. Future work should add measured maritime scattering
-parameters, sea-state-dependent Doppler spread, RIS phase quantization, and
-end-to-end path-loss calibration.
+This is a reproducible prototype for qualitative trend analysis. It is not
+presented as a fully measurement-validated maritime channel model. Future work
+should add measured maritime scattering parameters, sea-state-dependent
+Doppler spread, RIS phase quantization, and end-to-end path-loss calibration.

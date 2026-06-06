@@ -29,6 +29,21 @@ experiments use Frobenius-normalized channel matrices. Random scatterer
 environments are reused across compared cases within each Monte Carlo
 realization.
 
+## Maritime UAV-RIS-Shipborne-FAS
+
+The maritime module is validated as a compact qualitative simulation prototype,
+not as a measurement-calibrated propagation model. Its checks cover:
+
+- finite three-dimensional UAV, RIS, ship, FAS-port, and scatterer coordinates;
+- sea-surface-inspired scatterer heights within the configured range;
+- finite cascaded RIS and clustered maritime path responses;
+- temporal ACF normalization at zero lag and bounds in `[0, 1]`;
+- deterministic repeated outputs under a fixed random seed;
+- nondecreasing best-port capacity as the selectable FAS subset grows.
+
+The generated curves support parameter-trend analysis. They should not be
+interpreted as field-validated maritime channel measurements.
+
 ## Automated Checks
 
 ```matlab
@@ -40,8 +55,9 @@ The tests verify:
 - DFT matrix unitarity.
 - Ideal capacity invariance.
 - Fixed-seed FAS-UAV determinism.
+- Fixed-seed maritime geometry, ACF, and FAS selection determinism.
 - Port-index and matrix-dimension validity.
 - Separate raw-CIR and normalized-channel paths.
 - Modeling-error equation behavior.
 - Sparsity and operation-count metrics.
-- Required output files and finite values.
+- Required PNG/MAT output files and finite values.

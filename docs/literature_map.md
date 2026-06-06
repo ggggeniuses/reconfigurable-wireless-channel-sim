@@ -1,52 +1,60 @@
-# Literature Map and Research Workflow
+# Literature Map
 
-## Implemented Benchmark Modules
+## Implemented Benchmark Models
 
 ### RIS-V2V Beam-Domain Channel Statistics
 
-Role:
+Role in this project:
 
-- Provides a RIS-assisted vehicular dynamic-channel baseline.
-- Supports spatial CCF, temporal ACF, frequency FCF, RIS parameter sweeps,
-  mobility analysis, capacity invariance, and beam-domain sparsity analysis.
+- Provides the RIS-aided V2V baseline channel-statistics framework.
+- Supports CCF, ACF, FCF, RIS-parameter sweeps, beam-domain sparsity, capacity
+  invariance, and complexity analysis.
+- Implemented as a reference-guided benchmark model with engineering
+  refactoring and parameter extensions.
 
 ### FAS-UAV Dynamic Port-Reconfigurable Channel
 
-Role:
+Role in this project:
 
-- Provides a FAS-assisted UAV dynamic-port baseline.
-- Supports modeling error, capacity, active-port, aperture, and UAV-motion
-  analysis.
+- Provides the FAS-assisted UAV benchmark channel framework.
+- Supports active-port, aperture, port-spacing, motion-state, modeling-error,
+  and capacity analysis.
+- Implemented as a literature-guided benchmark model with reusable simulation
+  and validation pipelines.
 
-## Student-Designed Integrated Extension
-
-### Maritime UAV-RIS-Shipborne-FAS
-
-Role:
-
-- Combines RIS-assisted propagation, FAS port selection, UAV mobility, and
-  sea-surface-inspired maritime scattering.
-- Studies temporal ACF sensitivity to distance, Rician factor, and aerial RIS
-  location, plus capacity gain from selectable shipborne FAS ports.
-- Serves as the main integrated extension of this repository.
-
-## Reference-Only Literature
+## Reference-Only Background Papers
 
 ### RIS-FAS Air-Ground Channel Modeling
 
-Used as background for joint RIS/FAS propagation and reconfigurable-port
-modeling.
+Role:
 
-### RIS-Empowered UAV-to-Ship Maritime Channel Modeling
+- Supports the motivation for joint RIS/FAS modeling.
+- Not implemented as a separate code module in the current repository.
 
-Used as background for maritime geometry, mobility, and UAV-to-ship scenario
-design.
+### RIS-UAV-to-Ship Maritime Channel Modeling
+
+Role:
+
+- Supports the maritime UAV-to-ship scenario motivation.
+- Not implemented as a separate code module in the current repository.
+
+## Student-Designed Integrated Extension
+
+### Maritime UAV-Aerial-RIS-Shipborne-FAS
+
+Role:
+
+- Combines RIS-assisted propagation, maritime NLoS scattering, UAV/ship
+  mobility, and shipborne FAS port selection.
+- Supports temporal ACF sweeps over distance, Rician factor, and RIS location,
+  plus FAS selection-gain analysis.
+- Implemented as an integrated extension rather than a direct paper-code
+  implementation.
 
 ## Research Workflow
 
-1. Implement representative channel-statistics and capacity baselines.
-2. Refactor experiments into reusable MATLAB functions and repeatable scripts.
-3. Add parameter extensions and automated numerical checks.
-4. Integrate RIS, FAS, UAV mobility, and maritime scattering in a new scenario.
-5. Treat the current maritime results as qualitative trends pending
-   measurement-based calibration.
+1. Implement representative RIS/FAS benchmark channel models.
+2. Refactor the experiments into reusable MATLAB functions and scripts.
+3. Add parameter extensions, generated outputs, and automated checks.
+4. Integrate the previous modeling ideas in a maritime UAV-to-ship scenario.
+5. Preserve measurement calibration and hardware constraints as future work.

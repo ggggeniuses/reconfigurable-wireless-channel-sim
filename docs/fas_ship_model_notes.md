@@ -1,4 +1,4 @@
-# Maritime UAV-RIS-Shipborne-FAS Model Notes
+# Maritime UAV-Aerial-RIS-Shipborne-FAS Model Notes
 
 ## 1. Scenario
 
@@ -15,10 +15,18 @@ near the sea surface provide a compact NLoS component.
 
 ## 3. Link Components
 
+### Aerial RIS-Assisted Cascaded Path
+
 The RIS path uses element-wise UAV-RIS and RIS-ship distances, free-space phase,
 distance-dependent amplitude, and ideal phase alignment. The clustered path
 aggregates randomly phased two-hop contributions through sea-surface-inspired
-scatterers. A Rician factor and geometry-derived path balance mix their ACFs.
+scatterers.
+
+### Maritime NLoS Cluster Path
+
+The clustered path uses distributed, randomly phased two-hop contributions
+through scatterers placed near the sea surface. A Rician factor and
+geometry-derived path balance mix the cascaded and clustered ACF components.
 
 ## 4. Temporal ACF
 
@@ -28,13 +36,13 @@ relative motion projected onto the cascaded geometry. This makes distance,
 Rician factor, and RIS placement produce interpretable curve changes while
 keeping the ACF normalized and finite.
 
-## 5. FAS Port Selection
+## 5. Shipborne FAS Port Selection
 
 Ports follow an exponential spatial-correlation matrix. For each realization,
 the receiver chooses the strongest instantaneous port among the available
 subset. Capacity gain is reported relative to a single selectable port.
 
-## 6. Experiments
+## 6. Simulated Metrics and Experiments
 
 - ACF versus link distance.
 - ACF versus Rician factor.
