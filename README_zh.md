@@ -4,10 +4,9 @@
 
 ## 项目定位
 
-本项目是一个用于学习、整理和实验 RIS/FAS 辅助无线通信动态信道建模方法的
-MATLAB 仿真项目。项目围绕 RIS（Reconfigurable Intelligent Surface，
-可重构智能表面）与 FAS（Fluid Antenna System，流体天线系统）在移动通信
-场景中的信道建模问题展开。
+本项目是一个面向 RIS/FAS 辅助无线通信场景的 MATLAB 动态信道建模仿真项目，主要用于学习、整理和验证可重构无线系统中的信道建模方法。
+项目围绕 RIS（Reconfigurable Intelligent Surface，可重构智能表面）与 FAS（Fluid Antenna System，流体天线系统）在移动通信环境中
+的应用展开，重点分析不同场景下的信道统计特性、参数敏感性以及系统性能变化。
 
 项目采用三阶段递进式研究路线：
 
