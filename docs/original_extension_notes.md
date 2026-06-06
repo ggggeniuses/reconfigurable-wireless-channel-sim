@@ -1,9 +1,9 @@
-# Original Extension Notes
+# Scenario Extension Notes
 
 ## Purpose
 
-The Maritime UAV-Aerial-RIS-Shipborne-FAS module is a student-designed
-integrated extension of the existing RIS/FAS dynamic channel modeling platform.
+The Maritime UAV-Aerial-RIS-Shipborne-FAS module is developed as a scenario
+extension based on the RIS-V2V and FAS-UAV modules.
 
 It combines:
 
@@ -11,12 +11,12 @@ It combines:
 - Fluid antenna port correlation and selection gain from the FAS-UAV module.
 - Maritime UAV-to-ship mobility and sea-surface-inspired NLoS scattering.
 
-## What Is New in This Module
+## Relationship to the Previous Modules
 
-Unlike the two benchmark modules, this module is not organized as an
-implementation of one specific paper. It defines a simulation scenario where a
-UAV communicates with a shipborne FAS receiver through an aerial RIS and
-clustered maritime scattering.
+This module is not organized as an implementation of one specific paper. It
+combines aerial RIS-assisted propagation, maritime scattering, and shipborne
+FAS port selection to form a compact simulation scenario for UAV-to-ship
+communication.
 
 The experiments investigate:
 

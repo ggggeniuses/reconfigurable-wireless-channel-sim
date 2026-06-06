@@ -17,5 +17,6 @@ if exist(fullfile(projectRoot, 'run_fas_ship.m'), 'file')
 end
 run(fullfile(projectRoot, 'scripts', 'run_smoke_checks.m'));
 
-fprintf('\nAll experiments finished. Figures: %s\n', fullfile(projectRoot, 'results', 'figures'));
+fprintf('\nAll experiments finished.\n');
+fprintf('Figures: %s\n', fullfile(projectRoot, 'results', 'figures'));
 fprintf('Data files: %s\n', fullfile(projectRoot, 'results', 'data'));

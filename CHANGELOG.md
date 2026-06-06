@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Removed career-oriented notes and related documentation links.
+- Reframed the maritime module as a scenario extension based on the RIS-V2V
+  and FAS-UAV modeling components.
+- Refined English and Chinese project scope descriptions for learning,
+  organization, and simulation experiments.
 - Added a complete Chinese project overview in `README_zh.md`.
 - Reorganized the English README around the final three-module project story.
 - Added maritime figure interpretation and expanded validation documentation.

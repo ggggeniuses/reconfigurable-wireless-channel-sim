@@ -2,10 +2,9 @@
 
 [中文说明](README_zh.md) | [English README](README.md)
 
-MATLAB research-engineering simulator for RIS/FAS-enabled dynamic wireless
-channel modeling, covering RIS-V2V beam-domain channel statistics, FAS-UAV
-dynamic port-reconfigurable channels, and a student-designed maritime
-UAV-aerial-RIS-shipborne-FAS extension.
+This repository is a MATLAB simulation project for learning, organizing, and
+experimenting with dynamic channel modeling methods in RIS/FAS-enabled wireless
+communication systems.
 
 ## Project Scope
 
@@ -22,11 +21,11 @@ The project is organized into three connected modules:
 
    Implements FAS-assisted UAV channel simulations for active-port
    configuration, modeling error, mobility, and capacity analysis.
-3. **Maritime UAV-Aerial-RIS-Shipborne-FAS Extension Module**
+3. **Maritime UAV-Aerial-RIS-Shipborne-FAS Scenario Extension Module**
 
-   A student-designed extension combining UAV mobility, aerial RIS-assisted
-   propagation, sea-surface-inspired NLoS scattering, and shipborne FAS port
-   selection.
+   Extends the previous RIS/FAS modeling components to a maritime UAV-to-ship
+   scenario with aerial RIS-assisted propagation, sea-surface-inspired NLoS
+   scattering, and shipborne FAS port selection.
 
 ## Module Overview
 
@@ -34,7 +33,7 @@ The project is organized into three connected modules:
 | --- | --- | --- | --- |
 | RIS-V2V Beam-Domain Channel Statistics | RIS-aided vehicle-to-vehicle links | CCF, ACF, FCF, RIS parameters, mobility states | Reference-guided benchmark implementation and extension |
 | FAS-UAV Dynamic Port-Reconfigurable Channel | UAV-to-ground links with fluid antenna ports | Modeling error, channel capacity, active ports, UAV motion | Literature-guided benchmark implementation and extension |
-| Maritime UAV-Aerial-RIS-Shipborne-FAS | UAV-to-ship maritime communication | Distance, Rician factor, RIS location, FAS port selection | Student-designed integrated extension |
+| Maritime UAV-Aerial-RIS-Shipborne-FAS | UAV-to-ship maritime communication | Distance, Rician factor, RIS location, FAS port selection | Scenario extension based on the previous modules |
 
 ## Repository Layout
 
@@ -127,7 +126,7 @@ motion states, and FAS-versus-ULA capacity.
 
 ![FAS versus ULA](results/figures/fas_uav/fas_uav_capacity_fas_vs_ula.png)
 
-### Module 3: Maritime UAV-RIS-Shipborne-FAS Extension
+### Module 3: Maritime UAV-RIS-Shipborne-FAS Scenario Extension
 
 The module studies temporal correlation under different link distances,
 Rician factors, and aerial RIS locations, plus capacity gain from selectable
@@ -152,9 +151,8 @@ selection performance, and the expected PNG/MAT output manifest.
 This project does not claim to propose all baseline channel models from
 scratch. The RIS-V2V and FAS-UAV parts are implemented as literature-guided
 benchmark models with engineering refactoring, validation, and parameter
-extensions. The maritime UAV-RIS-shipborne-FAS module is a student-designed
-integrated extension built upon RIS-assisted dynamic propagation, FAS port
-reconfigurability, and maritime UAV-to-ship channel modeling ideas.
+extensions. The maritime UAV-RIS-shipborne-FAS module extends these modeling
+components to a unified UAV-to-ship communication scenario.
 
 ## Documentation
 
@@ -165,15 +163,15 @@ reconfigurability, and maritime UAV-to-ship channel modeling ideas.
 - [Cross-scenario comparison](docs/cross_scenario_comparison.md)
 - [Literature map](docs/literature_map.md)
 - [Maritime model notes](docs/fas_ship_model_notes.md)
-- [Original extension notes](docs/original_extension_notes.md)
-- [Resume description](docs/resume_description.md)
+- [Extension notes](docs/original_extension_notes.md)
+- [Project overview and roadmap](docs/project_overview_and_roadmap.md)
 
 ## Research Basis
 
 The simulator is developed from representative RIS/FAS dynamic channel
-modeling literature and student-designed extensions. The RIS-V2V and FAS-UAV
-modules are reference-guided benchmark simulations. The maritime module
-integrates RIS-assisted propagation, shipborne FAS port selection, and
+modeling literature. The RIS-V2V and FAS-UAV modules are reference-guided
+benchmark simulations. The maritime module extends their modeling components
+by integrating RIS-assisted propagation, shipborne FAS port selection, and
 maritime scattering into a unified UAV-to-ship simulation scenario.
 
 Source publications are listed in [CITATION.md](CITATION.md). Source papers,

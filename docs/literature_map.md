@@ -38,9 +38,10 @@ Role:
 - Supports the maritime UAV-to-ship scenario motivation.
 - Not implemented as a separate code module in the current repository.
 
-## Student-Designed Integrated Extension
+## Maritime UAV-RIS-Shipborne-FAS Scenario Extension
 
-### Maritime UAV-Aerial-RIS-Shipborne-FAS
+This module extends the modeling ideas used in the RIS-V2V and FAS-UAV modules
+to a maritime UAV-to-ship communication scenario.
 
 Role:
 
@@ -48,8 +49,8 @@ Role:
   mobility, and shipborne FAS port selection.
 - Supports temporal ACF sweeps over distance, Rician factor, and RIS location,
   plus FAS selection-gain analysis.
-- Implemented as an integrated extension rather than a direct paper-code
-  implementation.
+- Treated as a scenario extension built from the previous RIS/FAS modeling
+  components rather than as a direct implementation of one reference paper.
 
 ## Research Workflow
 

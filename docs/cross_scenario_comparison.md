@@ -7,7 +7,7 @@
 | Main model role | Beam-domain channel statistics | Dynamic port-reconfigurable channel | Integrated maritime extension |
 | Main metrics | CCF, ACF, FCF, capacity, sparsity | Modeling error, capacity | Temporal ACF, FAS selection gain |
 | Key parameters | RIS size, spacing, mobility state | Active ports, port spacing, aperture, UAV motion | Link distance, Rician factor, RIS location, selectable ports |
-| Project role | Benchmark implementation | Benchmark implementation | Student-designed extension |
+| Project role | Benchmark implementation | Benchmark implementation | Scenario extension based on previous modules |
 
 The three modules form a staged research-engineering project:
 

@@ -2,10 +2,10 @@
 
 ## Positioning
 
-This repository is a MATLAB engineering platform for dynamic channel modeling,
-propagation statistics, and capacity analysis in reconfigurable wireless
-systems. It covers RIS-enabled V2V, FAS-assisted UAV, and an integrated
-maritime UAV-RIS-shipborne-FAS scenario.
+This repository is a MATLAB simulation project for organizing and extending
+the study of dynamic channel modeling, propagation statistics, and capacity
+analysis in reconfigurable wireless systems. It covers RIS-enabled V2V,
+FAS-assisted UAV, and a maritime UAV-RIS-shipborne-FAS scenario extension.
 
 ## Implemented
 
@@ -26,7 +26,7 @@ maritime UAV-RIS-shipborne-FAS scenario.
 - FAS and ULA capacity comparison.
 - Reproducible Monte Carlo profiles.
 
-### Maritime UAV-RIS-Shipborne-FAS
+### Maritime UAV-RIS-Shipborne-FAS Scenario Extension
 
 - Three-dimensional UAV, aerial RIS, and shipborne FAS geometry.
 - Coherent cascaded RIS path and sea-surface-inspired clustered NLoS path.
